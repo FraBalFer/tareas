@@ -29,8 +29,13 @@ class DefaultController extends Controller
     {
       $repository = $this->getDoctrine()->getRepository('AppBundle:Tarea');
       $tarea = $repository->findOneById($id);
+
+      $url_atras = $this->generateUrl('homepage');
+
       return $this->render('default/tarea_unica.html.twig',
-        array('tarea'=>$tarea)
+        array('tarea'=>$tarea,
+          'url_atras' => $url_atras
+      )
     );
   }
 
